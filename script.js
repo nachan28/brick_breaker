@@ -75,9 +75,9 @@ function keyDownHandler(e) {
 }
 
 function keyUpHandler(e) {
-  if (e.key === "ArrowRight") {
+  if (e.key === "ArrowRight" || e.key === "Right") {
     rightPressed = false;
-  } else if (e.key === "ArrowLeft") {
+  } else if (e.key === "ArrowLeft" || e.key === "Left") {
     leftPressed = false;
   }
 }
