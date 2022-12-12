@@ -23,7 +23,6 @@ const brickOfsetTop = 30;
 const brickOfsetLeft = 30;
 
 const bricks = [];
-
 let score = 0;
 
 for (let c = 0; c < brickColumnCount; c++) {
@@ -102,16 +101,21 @@ function collisionDetection() {
           dy = -dy;
           b.status = 0;
           score++;
+          if (score === brickColumnCount * brickRowCount) {
+            alert("YOU WIN, CONGRATULATIONS!");
+            document.location.reload();
+            clearInterval(interval);
+          }
         }
       }
     }
   }
 }
 
-function drawScore(){
-    ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
-    ctx.fillText(`Score: ${score}`, 8, 20);
+function drawScore() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText(`Score: ${score}`, 8, 20);
 }
 
 function draw() {
