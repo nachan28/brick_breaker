@@ -26,7 +26,7 @@ const bricks = [];
 for (let c = 0; c < brickColumnCount; c++) {
   bricks[c] = [];
   for (let r = 0; r < brickRowCount; r++) {
-    bricks[c][r] = { x: 0, y: 0 };
+    bricks[c][r] = { x: 0, y: 0, status: 1 };
   }
 }
 
@@ -83,6 +83,22 @@ function keyUpHandler(e) {
   }
 }
 
+function collisionDetection() {
+  for (let c = 0; c < brickColumnCount; c++) {
+    for (let r = 0; r < brickRowCount; r++) {
+      const b = bricks[c][r];
+      if (
+        b.x <= x &&
+        x <= b.x + brickWidth &&
+        b.y <= y &&
+        y <= b.y + brickHeight
+      ) {
+        dy = -dy;
+      }
+    }
+  }
+}
+
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBricks();
@@ -101,6 +117,7 @@ function draw() {
       clearInterval(interval);
     }
   }
+  collisionDetection();
   x += dx;
   y += dy;
 
