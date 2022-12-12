@@ -154,18 +154,17 @@ function draw() {
       dy = -dy;
     } else {
       lives--;
-      if (!lives){
+      if (!lives) {
         alert("GAME OVER");
         document.location.reload();
         clearInterval(interval);
-      }else{
+      } else {
         x = canvas.width / 2;
         y = canvas.height - 30;
         dx = 2;
         dy = -2;
         paddleX = (canvas.width - paddleWidth) / 2;
       }
-      
     }
   }
   collisionDetection();
