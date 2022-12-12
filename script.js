@@ -58,7 +58,7 @@ document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
   if (e.key === "ArrowRight") {
     rightPressed = true;
-  } else if (e.key === "Arrowleft") {
+  } else if (e.key === "ArrowLeft") {
     leftPressed = true;
   }
 }
