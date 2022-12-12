@@ -23,6 +23,9 @@ const brickOfsetTop = 30;
 const brickOfsetLeft = 30;
 
 const bricks = [];
+
+let score = 0;
+
 for (let c = 0; c < brickColumnCount; c++) {
   bricks[c] = [];
   for (let r = 0; r < brickRowCount; r++) {
@@ -98,10 +101,17 @@ function collisionDetection() {
         ) {
           dy = -dy;
           b.status = 0;
+          score++;
         }
       }
     }
   }
+}
+
+function drawScore(){
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText(`Score: ${score}`, 8, 20);
 }
 
 function draw() {
@@ -132,6 +142,7 @@ function draw() {
   } else if (leftPressed) {
     paddleX = Math.max(paddleX - 7, 0);
   }
+  drawScore();
 }
 
 const interval = setInterval(draw, 10);
