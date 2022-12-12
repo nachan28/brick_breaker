@@ -23,31 +23,30 @@ const brickOfsetTop = 30;
 const brickOfsetLeft = 30;
 
 const bricks = [];
-for (let c = 0; c < brickColumnCount; c++){
-    bricks[c] = [];
-    for (let r = 0; r < brickRowCount; r++){
-        bricks[c][r] = {x: 0, y: 0};
-    }
+for (let c = 0; c < brickColumnCount; c++) {
+  bricks[c] = [];
+  for (let r = 0; r < brickRowCount; r++) {
+    bricks[c][r] = { x: 0, y: 0 };
+  }
 }
 
 // console.log(bricks);
 
-function drawBricks(){
-    for (let c = 0; c < brickColumnCount; c++){
-        for (let r = 0; r < brickRowCount; r++){
-            const brickX = c * (brickWidth + brickPadding) + brickOfsetLeft;
-            const brickY = r * (brickHeight + brickPadding) + brickOfsetTop;
-            bricks[c][r].x = brickX;
-            bricks[c][r].y = brickY;
-            ctx.beginPath();
-            ctx.rect(brickX, brickY, brickWidth, brickHeight);
-            ctx.fillStyle = "#0095DD";
-            ctx.fill();
-            ctx.closePath();
-        }
+function drawBricks() {
+  for (let c = 0; c < brickColumnCount; c++) {
+    for (let r = 0; r < brickRowCount; r++) {
+      const brickX = c * (brickWidth + brickPadding) + brickOfsetLeft;
+      const brickY = r * (brickHeight + brickPadding) + brickOfsetTop;
+      bricks[c][r].x = brickX;
+      bricks[c][r].y = brickY;
+      ctx.beginPath();
+      ctx.rect(brickX, brickY, brickWidth, brickHeight);
+      ctx.fillStyle = "#0095DD";
+      ctx.fill();
+      ctx.closePath();
     }
+  }
 }
-
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
