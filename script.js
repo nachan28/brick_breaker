@@ -1,29 +1,19 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-// ctx.beginPath();
-// ctx.rect(20, 40, 50, 50);
-// cstroke = "#FF0000";
-// ctx.fill();
-// ctx.closePath();
-
-// ctx.beginPath();
-// ctx.arc(240, 160, 50, 0, Math.PI * 2, false);
-// ctx.fillStyle = "green";
-// ctx.fill();
-// ctx.closePath();
-
-// ctx.beginPath();
-// ctx.rect(160, 10, 100, 100);
-// ctx.strokeStyle = "rgba(0, 0, 255, 1)";
-// ctx.stroke();
-// ctx.closePath();
-
 let x = canvas.width / 2;
 let y = canvas.height - 30;
 let dx = 2;
 let dy = -2;
 const ballRadius = 10;
+
+const paddleHeight = 10;
+const paddleWidth = 75;
+let paddleX = (canvas.width - paddleWidth) / 2;
+
+let rightPressed = false;
+let leftPressed = false;
+
 
 function drawBall() {
   ctx.beginPath();
@@ -48,9 +38,6 @@ function draw() {
 
 setInterval(draw, 10);
 
-const paddleHeight = 10;
-const paddleWidth = 75;
-let paddleX = (canvas.width - paddleWidth) / 2;
 
 function drawPaddle() {
   ctx.beginPath();
@@ -60,8 +47,6 @@ function drawPaddle() {
   ctx.closePath();
 }
 
-let rightPressed = false;
-let leftPressed = false;
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
