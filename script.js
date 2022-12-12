@@ -14,6 +14,24 @@ let paddleX = (canvas.width - paddleWidth) / 2;
 let rightPressed = false;
 let leftPressed = false;
 
+const brickRowCount = 3;
+const brickColumnCount = 5;
+const brickWidth = 75;
+const brickHeight = 20;
+const brickPadding = 10;
+const brickOfsetTop = 30;
+const brickOfsetLeft = 30;
+
+const bricks = [];
+for (let c = 0; c < brickColumnCount; c++){
+    bricks[c] = [];
+    for (let r = 0; r < brickRowCount; r++){
+        bricks[c][r] = {x: 0, y: 0};
+    }
+}
+
+// console.log(bricks);
+
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
