@@ -36,9 +36,9 @@ function draw() {
 
   drawPaddle();
   if (rightPressed) {
-    paddleX += 7;
+    paddleX = Math.min(paddleX + 7, canvas.width - paddleWidth);
   } else if (leftPressed) {
-    paddleX -= 7;
+    paddleX = Math.max(paddleX - 7, 0);
   }
 }
 
