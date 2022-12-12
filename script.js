@@ -54,6 +54,7 @@ function drawBricks() {
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler, false);
 
 function drawBall() {
   ctx.beginPath();
@@ -84,6 +85,20 @@ function keyUpHandler(e) {
     rightPressed = false;
   } else if (e.key === "ArrowLeft" || e.key === "Left") {
     leftPressed = false;
+  }
+}
+
+function mouseMoveHandler(e) {
+  const relativeX = e.clientX - canvas.offsetLeft;
+  if (
+    paddleWidth / 2 <= relativeX &&
+    relativeX <= canvas.width - paddleWidth / 2
+  ) {
+    paddleX = relativeX - paddleWidth / 2;
+  } else if (relativeX < paddleWidth / 2) {
+    paddleX = 0;
+  } else {
+    paddleX = canvas.width - paddleWidth;
   }
 }
 
