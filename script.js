@@ -66,18 +66,18 @@ let leftPressed = false;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
-function keyDownHandler(e){
-    if(e.key === "ArrowRight"){
-        rightPressed = true;
-    }else if(e.key === "Arrowleft"){
-        leftPressed = true;
-    }
-}   
+function keyDownHandler(e) {
+  if (e.key === "ArrowRight") {
+    rightPressed = true;
+  } else if (e.key === "Arrowleft") {
+    leftPressed = true;
+  }
+}
 
-function keyUpHandler(e){
-    if(e.key === "ArrowRight"){
-        rightPressed = false;
-    }else if(e.key === "ArrowLeft"){
-        leftPressed = false;
-    }
+function keyUpHandler(e) {
+  if (e.key === "ArrowRight") {
+    rightPressed = false;
+  } else if (e.key === "ArrowLeft") {
+    leftPressed = false;
+  }
 }
